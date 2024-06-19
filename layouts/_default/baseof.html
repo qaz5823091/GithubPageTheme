@@ -22,6 +22,10 @@
         {{- block "main" . }}{{ end }}
     </main>
     {{ partialCached "footer.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
+
+    {{ if not .Site.BuildDrafts }}
+        {{ partial "google/firebase_analytics.html" . }}
+    {{ end }}
 </body>
 
 </html>
